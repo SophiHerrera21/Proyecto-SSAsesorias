@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesoría Cancelada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #dc3545;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+        .alert {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #721c24;
+        }
+        .asesoria-details {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background-color: #545b62;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: #f8d7da;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">S&S Asesorías Virtuales</div>
+            <h2>Asesoría Cancelada</h2>
+        </div>
+
+        <div class="alert">
+            <strong>❌ Importante:</strong> Se ha cancelado una asesoría en la que participabas.
+        </div>
+
+        <div class="asesoria-details">
+            <h3>Información de la Asesoría Cancelada:</h3>
+            <p><strong>Componente:</strong> {{ asesoria.componente.nombre }}</p>
+            <p><strong>Grupo:</strong> {{ asesoria.grupo.nombre }}</p>
+            <p><strong>Asesor:</strong> {{ asesoria.grupo.asesor.usuario.get_full_name }}</p>
+            <p><strong>Fecha Programada:</strong> <span class="highlight">{{ asesoria.fecha|date:"l, d de F de Y" }}</span></p>
+            <p><strong>Hora Programada:</strong> <span class="highlight">{{ asesoria.hora|time:"H:i" }}</span></p>
+        </div>
+
+        <div style="background-color: #d1ecf1; border: 1px solid #bee5eb; border-radius: 5px; padding: 15px; margin: 20px 0;">
+            <h4>📝 Próximos Pasos:</h4>
+            <ul>
+                <li>Tu asesor te contactará para reprogramar la asesoría.</li>
+                <li>Mantente atento a las notificaciones del sistema.</li>
+                <li>Si tienes dudas, contacta directamente a tu asesor.</li>
+                <li>Continúa con tu preparación para la próxima asesoría.</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{ site_url }}/usuarios/dashboard/" class="btn">
+                📊 Ir al Dashboard
+            </a>
+        </div>
+
+        <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px; padding: 15px; margin: 20px 0;">
+            <h4>ℹ️ Información Adicional:</h4>
+            <p>Esta cancelación puede deberse a:</p>
+            <ul>
+                <li>Inconvenientes del asesor</li>
+                <li>Problemas técnicos</li>
+                <li>Reorganización del horario</li>
+                <li>Emergencias imprevistas</li>
+            </ul>
+            <p>Te pedimos disculpas por los inconvenientes causados.</p>
+        </div>
+
+        <div class="footer">
+            <p>Este es un mensaje automático del sistema S&S Asesorías Virtuales.</p>
+            <p>Si tienes dudas, contacta a tu asesor o al soporte técnico.</p>
+            <p><small>© 2024 S&S Asesorías Virtuales. Todos los derechos reservados.</small></p>
+        </div>
+    </div>
+</body>
+</html> 

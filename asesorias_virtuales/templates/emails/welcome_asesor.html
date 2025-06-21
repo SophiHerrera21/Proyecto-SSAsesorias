@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Bienvenido a S&S Asesorías Virtuales!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .welcome-message {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .steps {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background-color: #1e7e34;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">S&S Asesorías Virtuales</div>
+            <h2>¡Bienvenido, {{ user.get_full_name }}!</h2>
+        </div>
+
+        <div class="welcome-message">
+            <h3>🎉 ¡Tu cuenta de Asesor ha sido creada exitosamente!</h3>
+            <p>Estamos muy contentos de que te hayas unido a nuestro equipo de asesores. 
+            Tu experiencia y conocimiento serán fundamentales para el éxito de nuestros aprendices.</p>
+        </div>
+
+        <div class="steps">
+            <h3>📋 Próximos Pasos:</h3>
+            <ol>
+                <li><strong>Inicia Sesión:</strong> Usa tu correo electrónico y contraseña para acceder al sistema.</li>
+                <li><strong>Revisa tus Componentes:</strong> Verifica los componentes que has seleccionado para impartir.</li>
+                <li><strong>Gestiona Grupos:</strong> Toma grupos disponibles o espera asignaciones automáticas.</li>
+                <li><strong>Programa Asesorías:</strong> Agenda sesiones con tus grupos asignados.</li>
+                <li><strong>Asigna Pruebas:</strong> Crea evaluaciones para medir el progreso de tus aprendices.</li>
+                <li><strong>Genera Reportes:</strong> Analiza el rendimiento y comprensión de tus aprendices.</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{ login_url }}" class="btn">
+                🔐 Iniciar Sesión
+            </a>
+            <a href="{{ grupos_url }}" class="btn btn-secondary">
+                👥 Gestionar Grupos
+            </a>
+        </div>
+
+        <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px; padding: 15px; margin: 20px 0;">
+            <h4>💡 Información Importante:</h4>
+            <ul>
+                <li><strong>Límite de Grupos:</strong> Puedes tener un máximo de 4 grupos activos simultáneamente.</li>
+                <li><strong>Asesorías Diarias:</strong> Máximo 2 asesorías por día para mantener la calidad.</li>
+                <li><strong>Duración de Grupos:</strong> Los grupos tienen una duración máxima de 3 meses.</li>
+                <li><strong>Notificaciones:</strong> Los aprendices recibirán correos automáticos de cambios.</li>
+                <li><strong>Reportes:</strong> Accede a análisis detallados del rendimiento de tus aprendices.</li>
+            </ul>
+        </div>
+
+        <div style="background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; padding: 15px; margin: 20px 0;">
+            <h4>🎯 Tus Responsabilidades:</h4>
+            <ul>
+                <li>Programar y conducir asesorías efectivas</li>
+                <li>Asignar y evaluar pruebas de comprensión</li>
+                <li>Monitorear el progreso de tus aprendices</li>
+                <li>Generar reportes de rendimiento</li>
+                <li>Comunicar cambios de horario oportunamente</li>
+                <li>Proporcionar retroalimentación constructiva</li>
+            </ul>
+        </div>
+
+        <div style="background-color: #e2e3e5; border: 1px solid #d6d8db; border-radius: 5px; padding: 15px; margin: 20px 0;">
+            <h4>📊 Herramientas Disponibles:</h4>
+            <ul>
+                <li><strong>Dashboard de Asesor:</strong> Vista general de tus grupos y actividades</li>
+                <li><strong>Gestión de Grupos:</strong> Tomar grupos y ver aprendices asignados</li>
+                <li><strong>Programación de Asesorías:</strong> Crear y modificar sesiones</li>
+                <li><strong>Sistema de Pruebas:</strong> Crear y asignar evaluaciones</li>
+                <li><strong>Reportes Detallados:</strong> Análisis de respuestas y rendimiento</li>
+                <li><strong>Notificaciones Automáticas:</strong> Envío de correos a grupos</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Si tienes alguna pregunta, no dudes en contactar al soporte técnico.</p>
+            <p><strong>Correo de Soporte:</strong> soporte@ssasesorias.com</p>
+            <p><small>© 2024 S&S Asesorías Virtuales. Todos los derechos reservados.</small></p>
+        </div>
+    </div>
+</body>
+</html> 

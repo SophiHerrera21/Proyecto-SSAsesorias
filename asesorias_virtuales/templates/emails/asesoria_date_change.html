@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Fecha - Asesoría</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .alert {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .change-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .asesoria-details {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">S&S Asesorías Virtuales</div>
+            <h2>Cambio de Fecha de Asesoría</h2>
+        </div>
+
+        <div class="alert">
+            <strong>⚠️ Importante:</strong> Se ha modificado la fecha de una asesoría en la que participas.
+        </div>
+
+        <div class="change-info">
+            <h3>Detalles del Cambio:</h3>
+            <p><strong>Fecha Anterior:</strong> <span class="highlight">{{ old_data.old_fecha|date:"l, d de F de Y" }}</span></p>
+            <p><strong>Nueva Fecha:</strong> <span class="highlight">{{ asesoria.fecha|date:"l, d de F de Y" }}</span></p>
+        </div>
+
+        <div class="asesoria-details">
+            <h3>Información de la Asesoría:</h3>
+            <p><strong>Componente:</strong> {{ asesoria.componente.nombre }}</p>
+            <p><strong>Grupo:</strong> {{ asesoria.grupo.nombre }}</p>
+            <p><strong>Asesor:</strong> {{ asesoria.grupo.asesor.usuario.get_full_name }}</p>
+            <p><strong>Hora:</strong> {{ asesoria.hora|time:"H:i" }}</p>
+            <p><strong>Enlace de Videollamada:</strong> 
+                <a href="{{ asesoria.link_videollamada }}" target="_blank">{{ asesoria.link_videollamada }}</a>
+            </p>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{ asesoria.link_videollamada }}" class="btn" target="_blank">
+                📹 Unirse a la Asesoría
+            </a>
+        </div>
+
+        <div style="background-color: #d1ecf1; border: 1px solid #bee5eb; border-radius: 5px; padding: 15px; margin: 20px 0;">
+            <h4>📝 Notas Importantes:</h4>
+            <ul>
+                <li>Por favor, actualiza tu calendario con la nueva fecha.</li>
+                <li>El enlace de videollamada permanece igual.</li>
+                <li>Si tienes algún inconveniente, contacta a tu asesor.</li>
+                <li>Recuerda conectarte 5 minutos antes de la hora programada.</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Este es un mensaje automático del sistema S&S Asesorías Virtuales.</p>
+            <p>Si tienes dudas, contacta a tu asesor o al soporte técnico.</p>
+            <p><small>© 2024 S&S Asesorías Virtuales. Todos los derechos reservados.</small></p>
+        </div>
+    </div>
+</body>
+</html> 

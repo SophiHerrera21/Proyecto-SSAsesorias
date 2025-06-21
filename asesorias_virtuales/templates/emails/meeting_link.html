@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 0 0 5px 5px;
+        }
+        .meeting-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 4px solid #4a90e2;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Link de Reunión Virtual</h1>
+        </div>
+        <div class="content">
+            <p>Se ha programado una nueva reunión virtual.</p>
+            
+            <div class="meeting-details">
+                <h3>Detalles de la Reunión:</h3>
+                <p><strong>Título:</strong> {{ meeting.title }}</p>
+                <p><strong>Fecha:</strong> {{ meeting.date|date:"d/m/Y" }}</p>
+                <p><strong>Hora:</strong> {{ meeting.time|time:"H:i" }}</p>
+                <p><strong>Duración:</strong> {{ meeting.duration }} minutos</p>
+                <p><strong>Descripción:</strong></p>
+                <p>{{ meeting.description }}</p>
+            </div>
+
+            <p>Para unirte a la reunión, haz clic en el siguiente enlace:</p>
+            <a href="{{ link }}" class="button">Unirse a la Reunión</a>
+
+            <p>Recuerda:</p>
+            <ul>
+                <li>Conéctate 5 minutos antes de la hora programada</li>
+                <li>Asegúrate de tener una buena conexión a internet</li>
+                <li>Prueba tu micrófono y cámara antes de la reunión</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

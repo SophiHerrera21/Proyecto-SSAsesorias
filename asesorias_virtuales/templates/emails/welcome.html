@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Bienvenido a S&S Asesorías Virtuales!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .title {
+            color: #1e3a8a;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .welcome-message {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        .role-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc40;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .features {
+            margin: 25px 0;
+        }
+        .feature-item {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .feature-item:before {
+            content: "✓";
+            color: #2ecc40;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #2ecc40;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #666;
+        }
+        .contact-info {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">¡Bienvenido a S&S Asesorías Virtuales! 🎉</h1>
+        </div>
+        
+        <div class="welcome-message">
+            <p>Hola <strong>{{ user.first_name|default:'Usuario' }} {{ user.last_name|default:'' }}</strong>,</p>
+            <p>¡Nos complace darte la bienvenida a <strong>S&S Asesorías Virtuales</strong>! Tu cuenta ha sido creada exitosamente y ya puedes comenzar a disfrutar de todos nuestros servicios.</p>
+        </div>
+
+        <div class="role-info">
+            <h3>Tu Rol: {{ role|default:user.role|default:'Usuario' }}</h3>
+            {% if user.role == 'aprendiz' %}
+                <p>Como aprendiz, tendrás acceso a:</p>
+                <ul>
+                    <li>Seleccionar componentes de formación</li>
+                    <li>Unirte a grupos de estudio</li>
+                    <li>Realizar pruebas y evaluaciones</li>
+                    <li>Recibir notificaciones importantes</li>
+                </ul>
+            {% elif user.role == 'asesor' %}
+                <p>Como asesor, podrás:</p>
+                <ul>
+                    <li>Gestionar tus grupos y ver los detalles de las asesorías.</li>
+                    <li>Entregar las pruebas y ver tus calificaciones.</li>
+                    <li>Recibir notificaciones importantes sobre tus asesorías y pruebas.</li>
+                </ul>
+            {% else %}
+                <p>¡Explora todas las funcionalidades de la plataforma!</p>
+            {% endif %}
+        </div>
+
+        <div class="features">
+            <h3>Características principales de nuestra plataforma:</h3>
+            <div class="feature-item">Interfaz moderna y fácil de usar</div>
+            <div class="feature-item">Comunicación en tiempo real</div>
+            <div class="feature-item">Seguimiento de progreso académico</div>
+            <div class="feature-item">Sistema de notificaciones</div>
+            <div class="feature-item">Reportes detallados</div>
+            <div class="feature-item">Soporte técnico disponible</div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="{{ site_url|default:'http://localhost:8000' }}" class="cta-button">Acceder a la Plataforma</a>
+        </div>
+
+        <div class="contact-info">
+            <h4>¿Necesitas ayuda?</h4>
+            <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos:</p>
+            <ul>
+                <li><strong>Email:</strong> soporte@ssasesorias.com</li>
+                <li><strong>Teléfono:</strong> +57 300 123 4567</li>
+                <li><strong>Horario:</strong> Lunes a Viernes 8:00 AM - 6:00 PM</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>S&S Asesorías Virtuales</strong></p>
+            <p>Transformando la educación virtual</p>
+            <p>© 2024 S&S Asesorías. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html> 

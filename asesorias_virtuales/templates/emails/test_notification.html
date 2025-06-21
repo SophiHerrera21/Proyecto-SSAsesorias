@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 0 0 5px 5px;
+        }
+        .test-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 4px solid #4a90e2;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Nueva Prueba Disponible</h1>
+        </div>
+        <div class="content">
+            <p>Se ha publicado una nueva prueba para tu grupo.</p>
+            
+            <div class="test-details">
+                <h3>Detalles de la Prueba:</h3>
+                <p><strong>Título:</strong> {{ prueba.titulo }}</p>
+                <p><strong>Grupo:</strong> {{ grupo.nombre }}</p>
+                <p><strong>Fecha de Publicación:</strong> {{ prueba.fecha_creacion|date:"d/m/Y H:i" }}</p>
+                <p><strong>Fecha Límite:</strong> {{ prueba.fecha_limite|date:"d/m/Y H:i" }}</p>
+                <p><strong>Descripción:</strong></p>
+                <p>{{ prueba.descripcion }}</p>
+            </div>
+
+            <p>Para realizar la prueba, accede a la plataforma:</p>
+            <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'test_detail' prueba.id %}" class="button">Realizar Prueba</a>
+
+            <p>Recuerda:</p>
+            <ul>
+                <li>Completar la prueba antes de la fecha límite</li>
+                <li>Revisar bien las instrucciones</li>
+                <li>Guardar tus respuestas antes de enviar</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 0 0 5px 5px;
+        }
+        .group-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 4px solid #ff6b6b;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Alerta: Capacidad Máxima Alcanzada</h1>
+        </div>
+        <div class="content">
+            <p>El grupo ha alcanzado su capacidad máxima de estudiantes.</p>
+            
+            <div class="group-details">
+                <h3>Detalles del Grupo:</h3>
+                <p><strong>Nombre del Grupo:</strong> {{ group.name }}</p>
+                <p><strong>Asesor:</strong> {{ advisor.get_full_name }}</p>
+                <p><strong>Materia:</strong> {{ group.subject }}</p>
+                <p><strong>Capacidad Actual:</strong> {{ group.students.count }}/{{ group.max_students }}</p>
+                <p><strong>Horario:</strong> {{ group.schedule }}</p>
+            </div>
+
+            <p>Acciones recomendadas:</p>
+            <ul>
+                <li>Considerar la creación de un nuevo grupo</li>
+                <li>Revisar la distribución actual de estudiantes</li>
+                <li>Evaluar la posibilidad de aumentar la capacidad máxima</li>
+            </ul>
+
+            <p>Para gestionar esta situación, accede a la plataforma:</p>
+            <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'coordinator_dashboard' %}" class="button">Acceder al Dashboard</a>
+        </div>
+    </div>
+</body>
+</html> 
